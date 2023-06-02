@@ -9,7 +9,6 @@
         let txt = document.getElementById("mensaje");
         btn.addEventListener('click', limpiarTextBox);
         function limpiarTextBox(){
-            console.log("Limpiando");
             txt.value="";
         }
         txt.addEventListener("keydown", function(event) {
