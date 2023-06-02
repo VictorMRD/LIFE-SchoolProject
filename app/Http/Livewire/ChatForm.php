@@ -25,7 +25,6 @@ class ChatForm extends Component
         //Y como lo que queremos en este caso es mandar el mensaje que el usuario a escrito, lo que tenemos que hacer es
         //Junto al emit, mandar la variable que contenga el mensaje
 
-        $this->emit("mensajeRecibido", $this->mensaje); 
 
         event(new \App\Events\EnviarMensaje(($username = session('user')),$this->mensaje));
 
