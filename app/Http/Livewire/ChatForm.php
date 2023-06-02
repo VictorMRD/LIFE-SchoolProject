@@ -27,7 +27,7 @@ class ChatForm extends Component
 
         $this->emit("mensajeRecibido", $this->mensaje); 
 
-        event(new \App\Events\EnviarMensaje(($username = session('user')),$this->mensaje));
+        event(new \App\Events\enviarMensaje(($username = session('user')),$this->mensaje));
 
     }
 }
