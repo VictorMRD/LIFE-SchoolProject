@@ -23,7 +23,14 @@
             @endforeach
         </ul>
     </div>
-
+    <script>
+        let timer = setInterval(function(){
+                console.log('wep');
+                var lista = document.getElementById("lista");
+                lista.scrollTop = lista.scrollHeight;
+                clearInterval(timer);
+            },100);
+    </script>
 
     <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

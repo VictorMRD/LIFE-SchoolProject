@@ -25,12 +25,14 @@ class enviarMensaje implements ShouldBroadcast
         $this->usuario = $usuario;
         $this->mensaje = $mensaje;
 
-        // Save the message to the database
-        $message = new Message();
-        $message->usuario = $usuario;
-        $message->mensaje = $mensaje;
-        $message->content = "";
-        $message->save();
+        if($this->mensaje != ''){
+            // Save the message to the database
+            $message = new Message();
+            $message->usuario = $usuario;
+            $message->mensaje = $mensaje;
+            $message->content = "";
+            $message->save();
+        }
 
     }
 

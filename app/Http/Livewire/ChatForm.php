@@ -10,6 +10,7 @@ class ChatForm extends Component
     //Basicamanete es un metodo que se ejecuta una unica vez
     //unico lugar donde podemos tener acceso al request, pues sucede cuando se carga la pagina
     public $mensaje;
+    protected $listeners = ['enviarMensaje'];
     
     public function mount(){
         $this->mensaje = "";
@@ -20,12 +21,15 @@ class ChatForm extends Component
         return view('livewire.chat-form');
     }
 
-    public function enviarMensaje(){
+    public function enviarMensaje($mensaje2){
         //Al reaelizar este emision desde esta clase, alertamos a todas las otras que esten escuchando por este evento
         //Y como lo que queremos en este caso es mandar el mensaje que el usuario a escrito, lo que tenemos que hacer es
         //Junto al emit, mandar la variable que contenga el mensaje
-
+        logger('Enviando mensaje');
+        $this->mensaje = $mensaje2;
+        logger($this->mensaje);
         $this->emit("mensajeRecibido", $this->mensaje); 
+        logger($this->mensaje);
 
         event(new \App\Events\enviarMensaje(($username = session('user')),$this->mensaje));
 

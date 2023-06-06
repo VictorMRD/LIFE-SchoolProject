@@ -23,7 +23,8 @@ class User extends Authenticatable
         'Username', 
         'Age', 
         'Email', 
-        'Password'
+        'Password',
+        'Postion'
     ];
 
     /**
@@ -51,4 +52,7 @@ class User extends Authenticatable
         return $this->hasMany(Message::class);
     }    
 
+    public static function getUser($userId){
+        return User::find($userId);
+    }
 }

@@ -38,6 +38,7 @@ class FormController extends Controller
         $account->age = $age;
         $account->email = $email;
         $account->password = Hash::make($password); // Hash the password
+        $account->position = 1; // add the position
     
         $account->save();
     
@@ -56,6 +57,8 @@ class FormController extends Controller
             $request->session()->regenerate(); // Regenerate session ID to prevent session fixation attacks
             $user = Auth::user(); 
             $request->session()->put('user', $user->name); // Store the username in the session
+            $request->session()->put('position', $user->position);
+            $request->session()->put('id', $user->id);
             return redirect()->route('index');
         }
         
