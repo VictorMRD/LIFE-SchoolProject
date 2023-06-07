@@ -59,6 +59,9 @@ class FormController extends Controller
             $request->session()->put('user', $user->name); // Store the username in the session
             $request->session()->put('position', $user->position);
             $request->session()->put('id', $user->id);
+            $request->session()->put('email', $user->email);
+            $request->session()->put('age', $user->age);
+            $request->session()->put('description', $user->description);
             return redirect()->route('index');
         }
         

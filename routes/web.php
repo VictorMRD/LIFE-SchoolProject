@@ -20,8 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', [UserController::class, 'index'])->name('index');
+
 Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::get('/index', [UserController::class, 'index'])->name('index');
+Route::get('/user-profile', [UserController::class, 'user_profile'])->name('user_profile');
 
 /* Sera mi index, no necesito de una chat controller porque lo hare en el index, creo? */
 /* Route::get('/chat', 'ChatController@index')->name('chat'); */

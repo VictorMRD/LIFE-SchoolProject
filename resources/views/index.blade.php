@@ -11,7 +11,7 @@
     @livewireStyles
     @livewireScripts
     <header class="bg-black text-white px-4 py-2 w-screen text-center flex justify-between items-center">
-        <p class="text-2xl"><strong>Bienvenido,<a class="hover:text-blue-300" href="./index"> {{ session('user') }}</a></strong></p>
+        <p class="text-2xl"><strong>Bienvenido,<a class="hover:text-blue-300" href="./user-profile"> {{ session('user') }}</a></strong></p>
         <button id="CloseSession" class="bg-white text-black p-1 rounded-xl hover:bg-blue-600 transition duration-500 hover:text-white">Cerrar Sesion</button>
     </header>
     <div id="MainContainer" class="bg-gray-100 w-screen h-screen flex justify-center gap-3 p-4 items-center box-border border-x-8 border-solid border-black">
@@ -41,7 +41,6 @@
     </form>
     <!-- Utilizamos el siguiente script para poder activar el envio de nuestro formulario que nos ayudara a eliminar la sesion actual del usuario. -->
     <script>
-        
         let chat = document.getElementById("ChatRoom");
         let social = document.getElementById("SocialRoom");
         let chatBool = true;

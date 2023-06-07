@@ -28,4 +28,12 @@ class UserController extends Controller
         }
         return view('login');
     }
+    
+    public function user_profile(): View|RedirectResponse
+    {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+        return view('profile');
+    }
 }
