@@ -88,9 +88,10 @@
             let description = txtD.value;
             window.livewire.emit('saveChanges', uID, name, email, age, description);
             let timer = setInterval(function(){
-                location.reload(true);
                 clearInterval(timer);
-            },250);
+                location.reload(true);
+                alert("La pagina se recargara para guardar los cambios.");
+            },1000);
         });
         btnSalir.addEventListener('click', function(){
             window.location = "/index";
