@@ -18,17 +18,12 @@ class Situacion extends Component
     }
     
     public function mount(){
-        logger('Objeto montado correctamente.');
-        logger('Posicion del usuario:');
-        logger(session('position'));
         $this->options = Option::getById(session('position'));
         
     }
 
     //Le pasamos la eleccion que tomo nuestro usuario
     public function nextOption($optionSelec){
-        logger('Obteniendo opciones nuevo codigo.');
-        logger($this->user->position);
         $this->options = Option::getById($this->user->position);
         if($optionSelec == 3){
             $this->user->position = $this->options->Option3_Nextpart;
@@ -51,12 +46,10 @@ class Situacion extends Component
     }
     //Funcion para recargar el juego despues de haber cambiar una decision o para montar la imagen
     public function reLoadPage($id){
-        logger('Recarga realizada.');
         $this->options = Option::getById($id);
     }
     //Funcion para poder obtener el usuario
     public function getTheUser($id){
-        logger('Obteniendo usuario.');
         $this->user = User::getUser($id);
         if($this->user){
             $this->reLoadPage($this->user->position);

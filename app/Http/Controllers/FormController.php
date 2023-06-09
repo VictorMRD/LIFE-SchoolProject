@@ -62,6 +62,11 @@ class FormController extends Controller
             $request->session()->put('email', $user->email);
             $request->session()->put('age', $user->age);
             $request->session()->put('description', $user->description);
+            $request->session()->put('role', $user->role);
+            $user->status = "online";
+            $user->save();
+            $request->session()->put('status', $user->status);
+           
             return redirect()->route('index');
         }
         
@@ -71,6 +76,9 @@ class FormController extends Controller
     }
     
     public function logout(Request $request){
+        $user = Auth::user();
+        $user->status = "offline";
+        $user->save();
         Session::flush();
         return redirect()->route('login');
     }

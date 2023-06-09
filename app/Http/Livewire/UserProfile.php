@@ -29,7 +29,6 @@ class UserProfile extends Component
     }
 
     public function getTheUser($id){
-        logger('Obteniendo usuario.');
         $this->user = User::getUser($id);
         return $this->user;
     }

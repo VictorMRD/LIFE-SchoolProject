@@ -36,4 +36,15 @@ class UserController extends Controller
         }
         return view('profile');
     }
+    public function administrator(): View|RedirectResponse
+    {
+        if (!Session::has('user')) {
+            return redirect()->route('index');
+
+        }
+        if(Session::get('role') == "user"){
+            return redirect()->route('index');
+        }
+        return view('administrator');
+    }
 }

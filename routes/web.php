@@ -24,6 +24,7 @@ Route::get('/', function () {
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::get('/index', [UserController::class, 'index'])->name('index');
 Route::get('/user-profile', [UserController::class, 'user_profile'])->name('user_profile');
+Route::get('/administrator', [UserController::class, 'administrator'])->name('administrator');
 
 /* Sera mi index, no necesito de una chat controller porque lo hare en el index, creo? */
 /* Route::get('/chat', 'ChatController@index')->name('chat'); */

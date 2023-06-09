@@ -56,4 +56,15 @@ class User extends Authenticatable
     public static function getUser($userId){
         return User::find($userId);
     }
+
+    public static function getAllUsers(){
+        return User::all();
+    }
+
+    public static function removeUserr($email){
+        $user = User::where('email', $email)->first();
+        if ($user) {
+            $user->delete();
+        }
+    }
 }

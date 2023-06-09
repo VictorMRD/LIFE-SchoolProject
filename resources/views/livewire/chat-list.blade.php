@@ -12,8 +12,13 @@
 
         <ul id="lista" class="flex flex-col gap-2 p-2 overflow-y-auto overflow-x-hidden absolute top-0 left-0 right-0 bottom-0 ">
             @foreach($messages as $message)
-                <li class="bg-white p-2 border-solid border-black border-2 flex flex-col items-start shadow-2xl max-w-max">
-                    <p class="font-bold border-b-2 border-black">{{ $message->usuario }}</p>
+                <li class="bg-white p-2 border-solid border-black border-2 flex flex-col items-start shadow-2xl max-w-max" data-message-id="{{ $message->id }}">
+                    <div class="flex">
+                        <p class="font-bold border-b-2 border-black">{{ $message->usuario }}</p>
+                        @if($message->usuario === session('user') || session('role')=='admin')
+                            <button onclick="deleteMessage({{ $message->id}})">🔺Eliminar</button>
+                        @endif
+                    </div>
                     <p class="text-ellipsis overflow-hidden">{{ $message->mensaje }}</p>
                 </li>
                 <script>
@@ -31,7 +36,6 @@
                 clearInterval(timer);
             },100);
     </script>
-
     <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
@@ -46,5 +50,16 @@
         channel.bind('chat-event', function(data) {
             window.livewire.emit('mensajeRecibido', data.mensaje);
         });
+        function deleteMessage(messageId) {
+            console.log(messageId);
+            var messageElement = document.querySelector(`li[data-message-id="${messageId}"]`);
+            if (messageElement) {
+                // Remove the message element from the DOM
+                messageElement.remove();
+                window.livewire.emit("eliminarMensaje",messageId);
+            }else{  
+                alert("No se puede realizar esta accion por un error desconocido.");
+            }
+        }
     </script>
 </div>

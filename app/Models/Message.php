@@ -20,4 +20,11 @@ class Message extends Model
         $mensajes = Message::all();
         return view('chat-list', compact('mensajes'));
     }
+
+    public static function eliminarMensaje($id){
+        $mesage = Message::find($id);
+        if ($mesage) {
+            $mesage->delete();
+        }
+    }
 }
