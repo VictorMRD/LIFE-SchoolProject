@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->enum('status', ['online', 'offline'])->default('offline');
+            $table->string('description')->default('A este usuario aun le falta poner una descripcion... Recuerdaselo!')->after('position');
         });
     }
 
@@ -21,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };
