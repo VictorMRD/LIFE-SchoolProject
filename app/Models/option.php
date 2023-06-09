@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class option extends Model
+class Option extends Model
 {
     use HasFactory;
     protected $fillable = ['options'];
@@ -17,6 +17,6 @@ class option extends Model
     public static function getById($id)
     {
         // O puedes usar Option::find($id)
-        return option::findOrFail($id);
+        return Option::findOrFail($id);
     }
 }
