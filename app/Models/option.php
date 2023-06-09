@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class option extends Model
 {
     use HasFactory;
-    protected $fillable = ['option'];
+    protected $fillable = ['options'];
     protected $table = 'options';
     public function user()
     {
