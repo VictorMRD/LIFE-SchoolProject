@@ -11,7 +11,7 @@
         <div class="group flex flex-col items-center w-2/5 bg-black shadow-lg 
         shadow-white hover:bg-slate-700 transition duration-700 hover:scale-110">
             <p class="w-full text-center text-white text-4xl font-semibold border-b-2  duration-700
-             group-hover:border-b-2 ">Lista de Usuarios.<p>
+             group-hover:border-b-2 ">Lista de Administradores.<p>
             <div class="overflow-y-auto overflow-x-hidden p-2 flex gap-2 h-72 flex-wrap justify-evenly w-full pt-4">
                     @foreach ($users as $user)
                         @if($user->role === 'admin')
