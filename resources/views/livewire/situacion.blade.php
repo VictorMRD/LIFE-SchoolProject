@@ -1,12 +1,6 @@
 <div id="content" class="group bg-slate-900 flex justify-center items-end flex-col p-8 px-32 gap-4 blur-none transiotion duration-700 rounded-sm hover:shadow-lg hover:shadow-white shadow-md shadow-white w-5/6 hover:bg-slate-100">
     <!-- Contador -->
     <p id="mensaje">{{$user->alert}}</p>
-    <div class="flex justify-start w-full select-none">
-        <div class="flex gap-2 text-white p-2 rounded-2xl group-hover:text-black font-semibold duration-700">
-            <p>Caminos elegidos:</p>
-            <p id="contador">0</p>
-        </div>
-    </div>
     <!-- Descripcion de la historia -->
     <p class="text-4xl  text-white font-semibold p-6 text-center border-solid select-none group-hover:text-black duration-700">
         {{ $options->Description }}
