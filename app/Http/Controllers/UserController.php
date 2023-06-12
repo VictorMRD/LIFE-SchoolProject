@@ -70,9 +70,7 @@ class UserController extends Controller
     public function paravotar(): View|RedirectResponse
     {
         if (!Session::has('user')) {
-            return redirect()->route('login');
-        }
-        if(Session::get('role') == "user"){
+            
             return redirect()->route('login');
         }
         return view('paravotarr');
