@@ -15,7 +15,7 @@
 </head>
 <body class="flex justify-center items-center w-screen h-screen"> 
     <div class="bg-white h-screen w-screen flex flex-wrap box-border gap-0 select-none">
-        <div class="p-0 flex justify-between items-center w-full px-20 text-white flex-wrap">
+        <div class="p-0 flex justify-between items-center w-full text-white flex-wrap">
             <p style="font-size: 1900%;" class=" drop-shadow-[0_1.2px_1.2px_rgba(10,2,0,80)] hover:text-black hover:-translate-y-3 transition duration-500">L</p>
             <p style="font-size: 1900%" class="drop-shadow-[0_1.2px_1.2px_rgba(10,2,0,80)] hover:text-black hover:-translate-y-3 transition duration-300">I</p>
             <p style="font-size: 1900%" class="drop-shadow-[0_1.2px_1.2px_rgba(10,2,0,80)] hover:text-black hover:-translate-y-3 transition duration-300">F</p>
