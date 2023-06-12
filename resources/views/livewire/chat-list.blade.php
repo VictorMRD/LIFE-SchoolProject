@@ -6,7 +6,7 @@
     $messages = Message::all();
 ?>
 
-<div id="ChatRoom" class="h-full w-full bg-gray-200 transition duration-300 flex flex-col justify-end overflow-hidden relative">
+<div id="ChatRoom" class="h-full w-full bg-slate-600 transition duration-300 flex flex-col justify-end overflow-hidden relative">
     <div id="caja" class="flex flex-col justify-end bg-red-800 overflow-hidden">
         {{-- Success is as dangerous as failure. --}}
 

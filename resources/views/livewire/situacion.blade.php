@@ -1,48 +1,53 @@
-<div id="content" class="w-full h-full bg-gray-500 flex justify-center items-end flex-col p-8 px-32 gap-4 blur-none transiotion duration-500">
-    <div class="flex justify-start w-full">
-        <div class="flex gap-2 text-white bg-black p-2 rounded-2xl">
+<div id="content" class="group bg-slate-900 flex justify-center items-end flex-col p-8 px-32 gap-4 blur-none transiotion duration-700 rounded-sm hover:shadow-lg hover:shadow-white shadow-md shadow-white w-5/6 hover:bg-slate-100">
+    <!-- Contador -->
+    <p id="mensaje">{{$user->alert}}</p>
+    <div class="flex justify-start w-full select-none">
+        <div class="flex gap-2 text-white p-2 rounded-2xl group-hover:text-black font-semibold duration-700">
             <p>Caminos elegidos:</p>
             <p id="contador">0</p>
         </div>
     </div>
-    <p class="text-4xl bg-white p-6 text-center border-solid border-black border-4 rounded-xl select-none">
-    {{ $options->Description }}
+    <!-- Descripcion de la historia -->
+    <p class="text-4xl  text-white font-semibold p-6 text-center border-solid select-none group-hover:text-black duration-700">
+        {{ $options->Description }}
     </p>
+    <!-- Boton de opciones -->
     <button id="btnMostrar" class="p-2 bg-black text-white rounded-xl shadow-2xl hover:scale-125 duration-500" onclick="mostrar()">
         Tus opciones.
     </button>
-    <div id="opt" class="w-full bg-white overflow-hidden transition-all duration-300 flex justify-center items-center border-box select-none" style="max-height: 0px;">
-        <button id="opt1" class="white w-full h-full text-center group transition duration-300 blur-sm hover:blur-none">
-            <p id="titulo" class="transition duration-500 w-full bg-gray-700 text-white font-bold text-2xl group-hover:bg-black ">
+    <!-- Menu desplegable de opciones -->
+    <div id="opt" class="w-full bg-black overflow-hidden transition-all duration-500 flex justify-center items-center border-box select-none rounded-xl" style="max-height: 0px;">
+        <button id="opt1" class="rounded-xl white w-full h-full text-center group/second transition duration-500 blur-sm hover:blur-none bg-black hover:bg-white text-white hover:text-black border-2 border-solid border-black">
+            <p id="titulo" class="border-b-2 border-solid border-transparent w-full  font-bold text-2xl group-hover/second:border-b-2 group-hover/second:border-solid group-hover/second:border-black">
                 {{$options->Option1_title}}
             </p>
-            <p id="accion" class="transition duration-500 border-x-8 border-solid border-gray-700 border-b-8 text-xl font-bold group-hover:border-black">
+            <p id="titulo" class="border-b-2 border-solid border-transparent w-full  font-bold text-2xl group-hover/second:border-b-2 group-hover/second:border-solid group-hover/second:border-black">
                 {{$options->Option1_Action}}
             </p>
-            <p id="consecuencia" class="transition duration-500 border-b-8 border-solid border-x-8 border-gray-700 text-lg group-hover:border-black">
+            <p id="consecuencia" class="text-lg ">
                 {{$options->Option1_Description}}
             </p>
         </button>
-        <button id="opt2" class="white w-full h-full text-center bg-black group transition duration-300 blur-sm hover:blur-none">
-            <p id="titulo" class="transition duration-300 w-full bg-gray-300 text-black font-bold text-2xl group-hover:bg-white">
+        <button id="opt2" class="rounded-xl white w-full h-full text-center group/second transition duration-500 blur-sm hover:blur-none bg-black hover:bg-white text-white hover:text-black border-2 border-solid border-black">
+            <p id="titulo" class="border-b-2 border-solid border-transparent w-full  font-bold text-2xl group-hover/second:border-b-2 group-hover/second:border-solid group-hover/second:border-black">
                 {{$options->Option2_title}}
             </p>
-            <p id="accion" class="transition duration-300 border-x-8 border-solid border-gray-300 border-b-8 text-xl font-bold text-white group-hover:border-white">
+            <p id="titulo" class="border-b-2 border-solid border-transparent w-full  font-bold text-2xl group-hover/second:border-b-2 group-hover/second:border-solid group-hover/second:border-black">
                 {{$options->Option2_Action}}
             </p>
-            <p id="consecuencia" class="transition duration-300 border-b-8 border-solid border-x-8 text-lg text-white group-hover:border-white">
-                {{$options->Option1_Description}}
-        </p>
+            <p id="consecuencia" class="text-lg ">
+                {{$options->Option2_Description}}
+            </p>
         </button>
-        <button id="opt3" class="white w-full h-full text-center group transition duration-300 blur-sm hover:blur-none">
-            <p id="titulo" class="transition duration-300 w-full bg-gray-700 text-white font-bold text-2xl group-hover:bg-black ">
+        <button id="opt3" class="rounded-xl white w-full h-full text-center group/second transition duration-500 blur-sm hover:blur-none bg-black hover:bg-white text-white hover:text-black border-2 border-solid border-black">
+            <p id="titulo" class="border-b-2 border-solid border-transparent w-full  font-bold text-2xl group-hover/second:border-b-2 group-hover/second:border-solid group-hover/second:border-black">
                 {{$options->Option3_title}}
             </p>
-            <p id="accion" class="transition duration-300 border-x-8 border-solid border-gray-700 border-b-8 text-xl font-bold group-hover:border-black">
+            <p id="titulo" class="border-b-2 border-solid border-transparent w-full  font-bold text-2xl group-hover/second:border-b-2 group-hover/second:border-solid group-hover/second:border-black">
                 {{$options->Option3_Action}}
             </p>
-            <p id="consecuencia" class="transition duration-300 border-b-8 border-solid border-x-8 border-gray-700 text-lg group-hover:border-black">
-                {{$options->Option1_Description}}
+            <p id="consecuencia" class="text-lg ">
+                {{$options->Option3_Description}}
             </p>
         </button>
     </div>
@@ -51,6 +56,15 @@
         console.log(userID);
         window.onload = function() {
             window.livewire.emit('getTheUser', userID);
+            console.log(mensaje2.textContext)
+            if(mensaje2.textContent !== ""){
+                console.log("Mensaje");
+                alert("MENSAJE DE ADMINISTRACION ->" + mensaje2.textContent);
+                mensaje2.textContent = null;
+                window.livewire.emit('quitarMensaje', userID);
+                console.log("hola mundo");
+                console.log({{ session('alerta') }});
+            }
         };
 
         let opciones = document.getElementById("opt");
@@ -78,14 +92,14 @@
         function mostrar() {
             show = !show;
             if (show) {
-                opciones.style.maxHeight = opciones.scrollHeight + "px";
+                opciones.style.maxHeight = 200 + "px";
             } else {
                 opciones.style.maxHeight = "0";
             }
         }
         let optionPanel = document.getElementById("content");
         function animation(opcionElegida){
-            optionPanel.style.filter = "blur(1.4em)";
+            optionPanel.style.filter = "blur(0.4em)";
             optionPanel.style.background ="black";
             let timer = setInterval(function(){
                 optionPanel.style.filter = "blur(0em)";

@@ -39,7 +39,7 @@ class FormController extends Controller
         $account->email = $email;
         $account->password = Hash::make($password); // Hash the password
         $account->position = 1; // add the position
-    
+        $account->alert = "";
         $account->save();
     
         return redirect()->route('index');
@@ -56,6 +56,9 @@ class FormController extends Controller
             // You can perform additional actions or redirect the user here
             $request->session()->regenerate(); // Regenerate session ID to prevent session fixation attacks
             $user = Auth::user(); 
+            if($user->banned == "yes"){
+                return redirect()->back()->withErrors(['username' => 'Estas baneado.']);
+            }
             $request->session()->put('user', $user->name); // Store the username in the session
             $request->session()->put('position', $user->position);
             $request->session()->put('id', $user->id);
@@ -63,6 +66,8 @@ class FormController extends Controller
             $request->session()->put('age', $user->age);
             $request->session()->put('description', $user->description);
             $request->session()->put('role', $user->role);
+            $request->session()->put('alert', $user->alert);
+            
             $user->status = "online";
             $user->save();
             $request->session()->put('status', $user->status);
@@ -77,8 +82,12 @@ class FormController extends Controller
     
     public function logout(Request $request){
         $user = Auth::user();
-        $user->status = "offline";
-        $user->save();
+        if($user){
+            $user->status = "offline";
+            $user->save();
+            Session::flush();
+            return redirect()->route('login');
+        }
         Session::flush();
         return redirect()->route('login');
     }

@@ -10,7 +10,7 @@ class Situacion extends Component
 {
     public $options;
     public $user;
-    protected $listeners = ['nextOption','getTheUser'];
+    protected $listeners = ['nextOption','getTheUser','quitarMensaje'];
 
     public function render()
     {
@@ -19,7 +19,7 @@ class Situacion extends Component
     
     public function mount(){
         $this->options = option::getById(session('position'));
-        
+        $this->user = User::getUser(session('id'));
     }
 
     //Le pasamos la eleccion que tomo nuestro usuario
@@ -56,4 +56,19 @@ class Situacion extends Component
         }
         return $this->user;
     }
+    public function quitarMensaje($id)
+    {
+        $this->user = User::getUser($id);
+        if ($this->user) {
+            $this->user->alert = "";
+            $this->user->save();
+            logger("Here is the alert before:");
+            logger(session('alerta'));
+            session(['alerta' => null]);
+            session(['alerta' => ""]);
+            logger("Here is the alert after:");
+            logger(session('alerta'));
+        }
+    }
+    
 }

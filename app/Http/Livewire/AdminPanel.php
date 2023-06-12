@@ -15,7 +15,9 @@ class AdminPanel extends Component
     public $bestUsers = [];
     public $dollUser;
     public $deletedUsers = [];
-    protected $listeners = ["eliminarUsuario","agregarBuenUsuario","removerBuenUsuario","guardarUsuarioEliminado"];
+    protected $listeners = ["eliminarUsuario","agregarBuenUsuario","removerBuenUsuario",
+    "guardarUsuarioEliminado","agregarAdministrador","retirarAdministrador",
+    "modificarMensaje","banearUsuario","removerBaneo"];
 
     public function render()
     {
@@ -32,6 +34,20 @@ class AdminPanel extends Component
         BestUsers::removeUser($email);
         $this->guardarUsuarioEliminado($email,$name);
         User::removeUserr($email);
+        return redirect()->to('/administrator');
+    }
+
+    public function removerBaneo($id){
+        $usuario = User::getUser($id);
+        $usuario->banned = "no";
+        $usuario->save();
+        return redirect()->to('/administrator');
+    }
+
+    public function banearUsuario($id){
+        $usuario = User::getUser($id);
+        $usuario->banned = "yes";
+        $usuario->save();
         return redirect()->to('/administrator');
     }
 
@@ -52,6 +68,29 @@ class AdminPanel extends Component
     
     public function removerBuenUsuario($email){
         BestUsers::removeUser($email);
+        return redirect()->to('/administrator');
+    }
+    public function retirarAdministrador($email){
+        $usert = User::getUserE($email);
+        $usert->role = "user";
+        $usert->save();
+        Session::flash('message', 'Administrador retirado');
+        return redirect()->to('/administrator');
+    }
+
+    public function agregarAdministrador($email){
+        $usert = User::getUserE($email);
+        $usert->role = "admin";
+        $usert->save();
+        Session::flash('message', 'Administrador agregado');
+        return redirect()->to('/administrator');
+    }
+
+    public function modificarMensaje($email,$mensaje){
+        $usert = User::getUserE($email);
+        $usert->alert = $mensaje;
+        $usert->save();
+        Session::flash('message', 'Mensaje enviado');
         return redirect()->to('/administrator');
     }
 }

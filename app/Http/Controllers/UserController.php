@@ -47,4 +47,34 @@ class UserController extends Controller
         }
         return view('administrator');
     }
+    public function votaciones(): View|RedirectResponse
+    {
+        if (!Session::has('user')) {
+            return redirect()->route('index');
+        }
+        if(Session::get('role') == "user"){
+            return redirect()->route('login');
+        }
+        return view('votaciones');
+    }
+    public function frases(): View|RedirectResponse
+    {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+        if(Session::get('role') == "user"){
+            return redirect()->route('login');
+        }
+        return view('frases');
+    }
+    public function paravotar(): View|RedirectResponse
+    {
+        if (!Session::has('user')) {
+            return redirect()->route('login');
+        }
+        if(Session::get('role') == "user"){
+            return redirect()->route('login');
+        }
+        return view('paravotarr');
+    }
 }

@@ -91,7 +91,7 @@
                 clearInterval(timer);
                 location.reload(true);
                 alert("La pagina se recargara para guardar los cambios.");
-            },5000);
+            },8000);
         });
         btnSalir.addEventListener('click', function(){
             window.location = "/index";

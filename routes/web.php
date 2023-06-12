@@ -16,13 +16,12 @@ use App\Http\Controllers\FormController;
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
+Route::get('/', [UserController::class, 'index'])->name('index');
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::get('/index', [UserController::class, 'index'])->name('index');
+Route::get('/votaciones', [UserController::class, 'votaciones'])->name('votaciones');
+Route::get('/frases', [UserController::class, 'frases'])->name('frases');
+Route::get('/paravotar', [UserController::class, 'paravotar'])->name('paravotar');
 Route::get('/user-profile', [UserController::class, 'user_profile'])->name('user_profile');
 Route::get('/administrator', [UserController::class, 'administrator'])->name('administrator');
 
