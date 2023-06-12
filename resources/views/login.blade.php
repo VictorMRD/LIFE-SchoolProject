@@ -135,6 +135,8 @@
             registroForm.style.display = 'flex';
         });
     </script>
-
+    <div id="footer" class="absolute bottom-0 w-full bg-black flex justify-center">
+        @livewire("mostrarfrases")
+    </div>
 </body>
 </html>
