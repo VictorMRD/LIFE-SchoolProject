@@ -1,13 +1,13 @@
-<div class="w-full h-full bg-black flex justify-center items-center gap-4 flex-col">
+<div class="w-full h-full bg-black flex justify-center items-center gap-4 flex-col box-border overflow-auto">
     {{-- Be like water. --}}
     <div class="border-solid border-black border-2 w-2/5 bg-white">
             <button id="votaciones" class="w-full text-center bg-black text-white h-full flex 
             justify-center items-center text-6xl font-semibold hover:bg-slate-700 transition duration-700 hover:scale-110 select-none">Votaciones</button>
-        </div>
-        <div class="border-solid border-black border-2 w-2/5 bg-white">
+    </div>
+    <div class="border-solid border-black border-2 w-2/5 bg-white">
             <button id="regresar" class="w-full text-center bg-black text-white h-8 flex 
             justify-center items-center font-semibold hover:bg-slate-700 transition duration-700 hover:scale-110 select-none">Regresar</button>
-        </div>
+    </div>
     <div class="flex flex-col gap-8">
         <div class="bg-black text-white flex flex-col justify-center items-center pb-6 shadow-md shadow-white hover:scale-110 transition duration-500 select-none">
             <p class="p-2 text-3xl font-semibold">Añadir Votacion</p>
