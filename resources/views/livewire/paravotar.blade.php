@@ -1,6 +1,6 @@
 <div class="w-screen h-screen overflow-auto box-border">
     {{-- Success is as dangerous as failure. --}}
-    <div class="flex flex-col gap-10 bg-black justify-center items-center h-screen w-screen border-2">
+    <div class="flex flex-col gap-10 bg-black justify-center items-center h-screen w-screen     ">
         <p class="text-white font-semibold text-6xl">Votaciones</p>
         <p class="text-white font-semibold text-4xl"><a href="/index">Regresar</a></p>
         <div class="flex flex-col gap-2 bg-black items-center h-96 w-full overflow-auto">
