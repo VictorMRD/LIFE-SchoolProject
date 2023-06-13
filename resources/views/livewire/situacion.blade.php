@@ -10,7 +10,7 @@
         Tus opciones.
     </button>
     <!-- Menu desplegable de opciones -->
-    <div id="opt" class="w-full bg-black overflow-hidden transition-all duration-500 flex justify-center items-center border-box select-none rounded-xl" style="max-height: 0px;">
+    <div id="opt" class="w-full h-full bg-black overflow-hidden transition-all duration-500 flex justify-center items-center border-box select-none rounded-xl" style="max-height: 0px;">
         <button id="opt1" class="rounded-xl white w-full h-full text-center group/second transition duration-500 blur-sm hover:blur-none bg-black hover:bg-white text-white hover:text-black border-2 border-solid border-black">
             <p id="titulo" class="border-b-2 border-solid border-transparent w-full  font-bold text-2xl group-hover/second:border-b-2 group-hover/second:border-solid group-hover/second:border-black">
                 {{$options->Option1_title}}
@@ -18,7 +18,7 @@
             <p id="titulo" class="border-b-2 border-solid border-transparent w-full  font-bold text-2xl group-hover/second:border-b-2 group-hover/second:border-solid group-hover/second:border-black">
                 {{$options->Option1_Action}}
             </p>
-            <p id="consecuencia" class="text-lg ">
+            <p id="consecuencia" class="text-lg h-full">
                 {{$options->Option1_Description}}
             </p>
         </button>
@@ -29,7 +29,7 @@
             <p id="titulo" class="border-b-2 border-solid border-transparent w-full  font-bold text-2xl group-hover/second:border-b-2 group-hover/second:border-solid group-hover/second:border-black">
                 {{$options->Option2_Action}}
             </p>
-            <p id="consecuencia" class="text-lg ">
+            <p id="consecuencia" class="text-lg">
                 {{$options->Option2_Description}}
             </p>
         </button>
@@ -40,7 +40,7 @@
             <p id="titulo" class="border-b-2 border-solid border-transparent w-full  font-bold text-2xl group-hover/second:border-b-2 group-hover/second:border-solid group-hover/second:border-black">
                 {{$options->Option3_Action}}
             </p>
-            <p id="consecuencia" class="text-lg ">
+            <p id="consecuencia" class="text-lg">
                 {{$options->Option3_Description}}
             </p>
         </button>
@@ -86,7 +86,7 @@
         function mostrar() {
             show = !show;
             if (show) {
-                opciones.style.maxHeight = 200 + "px";
+                opciones.style.maxHeight = "300px";
             } else {
                 opciones.style.maxHeight = "0";
             }

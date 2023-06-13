@@ -37,7 +37,7 @@
     </header>
     <!-- Contenido en general -->
     <div id="MainContainer" class="bg-black w-screen h-screen flex justify-center gap-3 p-4 items-center box-border">
-        <div id="GamePannel" class="w-full bg-black flex justify-center flex-col items-center box-border">
+        <div id="GamePannel" class="w-full h-full bg-black flex justify-center flex-col items-center box-border">
                 @livewire("situacion")
         </div>
         <div id="ChatPannel" class="w-2/5 h-full bg-white flex flex-col justify-center items-center border-8 box-border
