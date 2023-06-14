@@ -89,7 +89,7 @@
     <button id="btnMostrar" class="p-2 bg-black text-white rounded-xl shadow-2xl hover:scale-125 duration-500" onclick="resumen()">
             Resumen de tu juego.
         @elseif( $options->Option1_Nextpart === $options->Option2_Nextpart)
-    <button id="btnMostrar" class="p-2 bg-black text-white rounded-xl shadow-2xl hover:scale-125 duration-500" onclick="mostrar()">
+    <button id="btnMostrar" class="p-2 bg-black text-white rounded-xl shadow-2xl hover:scale-125 duration-500" onclick="siguiente()">
             Siguiente
         @else
     <button id="btnMostrar" class="p-2 bg-black text-white rounded-xl shadow-2xl hover:scale-125 duration-500" onclick="mostrar()">
@@ -133,7 +133,7 @@
         </button>
     </div>
     <script>
-        let desc = document.getElementById("btnMostrar");
+        let desc = document.getElementById("desc");
         let btnMostrar = document.getElementById("btnMostrar");
         let opciones = document.getElementById("opt");
         let graficas = document.getElementById("graficas");
@@ -221,6 +221,9 @@
             opciones.style.maxHeight= "0px";
             graficas.style.display = "none";
             window.livewire.emit('reiniciar');
+        }
+        function siguiente() {
+            animation(1);
         }
     </script>
 </div>

@@ -147,6 +147,13 @@ class Situacion extends Component
     public function reiniciar(){
         $this->user->position = 4;
         $this->user->save();
+        $this->emotion->Ira = 0;
+        $this->emotion->Disgusto = 0;
+        $this->emotion->Tristeza = 0;
+        $this->emotion->Felicidad = 0;
+        $this->emotion->Sorpresa = 0;
+        $this->emotion->Miedo = 0;
+        $this->emotion->save();
         $this->reLoadPage(4);
     }
     
