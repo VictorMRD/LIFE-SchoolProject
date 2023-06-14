@@ -89,12 +89,20 @@
         $options->Option2_Nextpart === null || $options->Option3_Nextpart === null)
     <button id="btnMostrar" class="p-2 bg-black text-white rounded-xl shadow-2xl hover:scale-125 duration-500" onclick="resumen()">
             Resumen de tu juego.
+            {{$options->Option1_Nextpart}}
+            @if($options->Option1_Nextpart === null)
+                es null
+            @else
+                no es null
+            @endif
         @elseif( $options->Option1_Nextpart === $options->Option2_Nextpart && $options->Option1_Nextpart !== null)
     <button id="btnMostrar" class="p-2 bg-black text-white rounded-xl shadow-2xl hover:scale-125 duration-500" onclick="siguiente()">
             Siguiente
+            {{$options->Option1_Nextpart}}
         @else
     <button id="btnMostrar" class="p-2 bg-black text-white rounded-xl shadow-2xl hover:scale-125 duration-500" onclick="mostrar()">
-            Opciones   
+            Opciones
+            {{$options->Option1_Nextpart}}   
         @endif
     </button>
     <!-- Menu desplegable de opciones -->
