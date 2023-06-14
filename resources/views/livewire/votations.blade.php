@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="bg-black text-white flex flex-col justify-center items-center pb-6 shadow-md shadow-white hover:scale-110 transition duration-500 select-none">
-            <p class="p-2 text-3xl font-semibold">Modificar Votacion</p>
+            <p class="p-2 text-3xl font-semibold">Modificar Votación</p>
             <div class="bg-white w-11/12 flex flex-col justify-center items-center text-black">
                 <input id="pregunta2" placeholder="Pregunta" class="w-full text-center hover:bg-slate-100" value="{{ $sacada ? $sacada->pregunta : '' }}">
                 <input id="r11" placeholder="Respuesta 1" class="w-full text-center hover:bg-slate-100" value="{{ $sacada ? $sacada->respuesta1 : '' }}">
@@ -45,11 +45,11 @@
                         <div class="flex flex-col border-l-2 border-black border-solid justify-center items-center">
                             <button class="bg-pink-300 p-1 text-black border-solid border-black hover:bg-pink-200
                              hover:text-black" onclick="sacarDatos('{{$votacion->id}}')"> 
-                                Modificar Votacion
+                                Modificar Votación
                             </button>
                             <button class="bg-slate-900 p-1 text-white border-solid border-black 
                             hover:bg-slate-700" onclick="eliminarVotacion('{{$votacion->id}}')"> 
-                                Eliminar Votacion
+                                Eliminar Votación
                             </button>
                         </div>
                     </div><br>

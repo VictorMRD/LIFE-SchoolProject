@@ -6,7 +6,7 @@
             <p>Nombre</p>
             <p>Correo </p>
             <p>Edad  </p>
-            <p>Descripcion</p>
+            <p>Descripción</p>
         </div>
         <div class="flex flex-col justify-evenly gap-2 w-4/5">
             <input id="txtName" class="border-solid border-black border-1 text-center h-5/6 bg-gray-600"></input>

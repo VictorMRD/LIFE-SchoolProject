@@ -39,7 +39,7 @@
 
         <div class="border-solid border-black border-2 w-2/5 bg-white">
             <button id="frases" class="w-full text-center bg-black text-white h-full flex shadow-lg shadow-white 
-            justify-center items-center text-6xl font-semibold hover:bg-slate-700 transition duration-700 hover:scale-110 select-none">Frases del Dia</button>
+            justify-center items-center text-6xl font-semibold hover:bg-slate-700 transition duration-700 hover:scale-110 select-none">Frases del Día</button>
         </div>
         <div class="border-solid border-black border-2 w-2/5 bg-white">
             <button id="votaciones" class="w-full text-center bg-black text-white h-full flex shadow-lg shadow-white

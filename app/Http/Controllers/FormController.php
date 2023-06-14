@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\User; // Corrected the reference to the User model
+use App\Models\User;
+use App\Models\Emotions; // Corrected the reference to the User model
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash; // Added the Hash facade for password hashing
@@ -33,6 +34,15 @@ class FormController extends Controller
         $password = $request->input('password');
         $email = $request->input('email');
     
+        $emotion = new Emotions;
+        $emotion->Ira = 0;
+        $emotion->Disgusto = 0;
+        $emotion->Tristeza = 0;
+        $emotion->Felicidad = 0;
+        $emotion->Sorpresa = 0;
+        $emotion->Miedo = 0;
+        $emotion->save();
+
         $account = new User;
         $account->name = $name; // Updated the property name to match the User model
         $account->age = $age;
@@ -40,6 +50,7 @@ class FormController extends Controller
         $account->password = Hash::make($password); // Hash the password
         $account->position = 1; // add the position
         $account->alert = "";
+        $account->emotions_id = $emotion->id;
         $account->save();
     
         return redirect()->route('index');
@@ -67,6 +78,7 @@ class FormController extends Controller
             $request->session()->put('description', $user->description);
             $request->session()->put('role', $user->role);
             $request->session()->put('alert', $user->alert);
+            $request->session()->put('emotions_id', $user->emotions_id);
             
             $user->status = "online";
             $user->save();
