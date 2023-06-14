@@ -85,10 +85,11 @@
         {{ $options->Description }}
     </p>
     <!-- Boton de opciones -->
-        @if( $options->Option1_Nextpart === null)
+        @if( $options->Option1_Nextpart === null || $options->Option1_Nextpart == null || $options->Option2_Nextpart === null ||
+        $options->Option2_Nextpart === null || $options->Option3_Nextpart === null)
     <button id="btnMostrar" class="p-2 bg-black text-white rounded-xl shadow-2xl hover:scale-125 duration-500" onclick="resumen()">
             Resumen de tu juego.
-        @elseif( $options->Option1_Nextpart === $options->Option2_Nextpart)
+        @elseif( $options->Option1_Nextpart === $options->Option2_Nextpart && $options->Option1_Nextpart !== null)
     <button id="btnMostrar" class="p-2 bg-black text-white rounded-xl shadow-2xl hover:scale-125 duration-500" onclick="siguiente()">
             Siguiente
         @else
