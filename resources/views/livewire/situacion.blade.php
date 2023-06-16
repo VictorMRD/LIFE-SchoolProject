@@ -155,7 +155,7 @@
                 alert("MENSAJE DE ADMINISTRACION ->" + mensaje2.textContent);
                 mensaje2.textContent = null;
                 window.livewire.emit('quitarMensaje', userID);
-                console.log("hola mundo");
+                console.log("hola mundo v");
                 console.log({{ session('alerta') }});
             }
         };
@@ -198,7 +198,7 @@
                 //Aca va el cambio de opciones
                 window.livewire.emit('nextOption',opcionElegida);
             },550);
-            console.log("animation");
+            console.log("animation v");
         }
         function resumen() {
             optionPanel.style.filter = "blur(0.4em)";
